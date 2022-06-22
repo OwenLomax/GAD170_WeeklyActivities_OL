@@ -25,8 +25,10 @@ namespace OwenLomax
 
         }
 
-        
+
         int PowerLevel(int strength, int agility, int intelligence)
+                      
+       
         {
            int result = 0;
             result = (int)(strength * 2 + agility * 1.5f + intelligence);
