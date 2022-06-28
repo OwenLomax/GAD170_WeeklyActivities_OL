@@ -10,7 +10,9 @@ namespace OwenLomax
         // Information about my name that prints my first and last name
         private string firstName = "Owen";
         private string lastName = "Lomax";
-        
+        int agility = 0;
+        int strength = 0;
+        int intelligence = 0;
 
 
         // Start is called before the first frame update
