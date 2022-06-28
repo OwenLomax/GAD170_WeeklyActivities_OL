@@ -10,8 +10,9 @@ namespace OwenLomax
         // Information about my name that prints my first and last name
         private string firstName = "Owen";
         private string lastName = "Lomax";
-        
-
+        int strength = Random.Range(0, 11);
+        int agility = Random.Range(0, 11);
+        int intelligence = Random.Range(0, 11);
 
         // Start is called before the first frame update
         void Start()
