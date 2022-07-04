@@ -15,17 +15,20 @@ namespace OwenLomax
         //
         // accessModifier Type theNameYouGiveTheVariable
         //
+        // Note: theNameYouGiveTheMethod must use lowerCamelCase.
+        //
         // For example:
         public int highScore;
         public int score;
         public List<GameObject> enemies = new List<GameObject>();
 
-
-
         // To declare a method, we need:
-        // accessModifier ReturnType TheNameYouGiveTheMethod
+        // accessModifier ReturnType TheNameYouGiveTheMethod() {}
+        // You can also include parameters, as in the second example below.
+        //
         // Note: TheNameYouGiveTheMethod must use PascalCase ( or UpperCamelCase )
-        //For example, a method that reset's the highscore
+        //
+        //For example, a method that resets a high score
 
         public void HighScoreReset()
         {
@@ -49,7 +52,7 @@ namespace OwenLomax
             if (score > highScore)
             {
                 highScore = score;
-                //highScore is now equal to 10
+                // Now highScore is equal to 10
             }
         }
 
@@ -65,7 +68,11 @@ namespace OwenLomax
             // The above loop will run 4 times (once per enemy)
             // On each iteration, the code inside will execute.
             //
-            // 
+            // A "for loop" is essentially three instructions:
+            // - Declare a variable to iterate
+            // - Provide a conditional check that allows us to continue to iterate
+            // - Iterate, running the code inside the { } braces
+            //
             // For example, if we needed to reset four enemies, we can write:
 
             for (int i = 0; i < 4; i++)
@@ -80,11 +87,7 @@ namespace OwenLomax
 
 
 
-        // Update is called once per frame
-        void Update()
-        {
-
-        }
+        
     }
 
     // to declare a class we need:
@@ -94,10 +97,34 @@ namespace OwenLomax
     //}
     //For example:
 
-    public class ExampleClass
+    public class ExampleClass : MonoBehaviour
     {
         //This class can be accessed (i.e. seen) by other classes because it is public.
         // You cannot make a private class. (In general.)
     }
 
+    public class GameController : MonoBehaviour
+    {
+        public ScoreSystem scoreSystem;
+    }
+
+    public class Enemy : MonoBehaviour
+    {
+        GameController controller;
+
+        public void BecomeDead()
+        {
+            controller.scoreSystem.IncreaseScore();
+        }
+    }
+
+    public class ScoreSystem : MonoBehaviour
+    {
+        private int highScore = 0;
+
+        public void IncreaseScore()
+        {
+            highScore += 10;
+        }
+    }
 }
