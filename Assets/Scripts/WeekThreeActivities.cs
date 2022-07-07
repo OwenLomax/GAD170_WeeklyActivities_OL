@@ -15,10 +15,7 @@ namespace OwenLomax
         int agility = Random.Range(0, 11);
         int intelligence = Random.Range(0, 11);
 
-        int agility = 0;
-        int strength = 0;
-        int intelligence = 0;
-
+        
 
 
         // Start is called before the first frame update
